@@ -1,0 +1,9 @@
+Flask
+Flask-Session
+psycopg2-binary
+SQLAlchemy
+requests
+flask-migrate
+flask-admin
+flask-login
+flask-socketio
