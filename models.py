@@ -1,9 +1,12 @@
 import datetime
+
+from flask import Flask
 from sqlalchemy import DateTime, Float
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 db = SQLAlchemy()
 
+app = Flask(__name__)
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
@@ -16,6 +19,17 @@ class User(UserMixin, db.Model):
         self.username = username
         self.password = password
         self.balance = balance
+
+class Posts(db.Model):
+    __tablename__ = 'posts'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(128), nullable=False)
+    text = db.Column(db.String(1096), nullable=False)
+
+    def __init__(self, name, text):
+        self.name = name
+        self.text = text
+
 # class Patient(db.Model):
 #     __tablename__="patients"
 #     PatientID = db.Column(db.Integer, primary_key=True)

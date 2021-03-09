@@ -1,7 +1,7 @@
 """Initial migration.
 
 Revision ID: 41a9ec4aed2b
-Revises: 
+Revises:
 Create Date: 2021-01-19 14:59:02.802072
 
 """
@@ -25,6 +25,13 @@ def upgrade():
     sa.Column('balance', sa.Integer(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('username')
+    )
+
+    op.create_table('posts',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('name', sa.String(length=128), nullable=False),
+    sa.Column('text', sa.String(length=1096), nullable=False),
+    sa.PrimaryKeyConstraint('id'),
     )
     # ### end Alembic commands ###
 

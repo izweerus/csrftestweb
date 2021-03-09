@@ -21,6 +21,9 @@
                             <a href="{{ url_for('main.index') }}" class="navbar-item">
                                 Home
                             </a>
+                            <a href="{{ url_for('blog.post') }}" class="navbar-item">
+                                Blog
+                            </a>
                             {% if current_user.is_authenticated %}
                             <a href="{{ url_for('main.profile') }}" class="navbar-item">
                                 Profile
@@ -35,6 +38,18 @@
                             </a>
                             {% endif %}
                             {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('main.deposit1') }}" class="navbar-item">
+                              Deposit post
+                            </a>
+                            <a href="{{ url_for('main.deposit2') }}" class="navbar-item">
+                              Deposit get
+                            </a>
+                            <a href="{{ url_for('main.depositToken') }}" class="navbar-item">
+                              Deposit Token
+                            </a>
+                            <a href="{{ url_for('blueCSRF.depositCSRF') }}" class="navbar-item">
+                              Deposit CSRF
+                            </a>
                             <a href="{{ url_for('auth.logout') }}" class="navbar-item">
                                 Logout
                             </a>

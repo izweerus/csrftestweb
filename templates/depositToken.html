@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ message }}</h1>
+
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Transfer</h3>
+    <h3>
+    Your total balance is {{ balance }}
+    </h3>
+    <div class="box">
+        <form method="POST" action="/depositToken">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="field">
+                <div class="control">
+                  <p>The amount of money you want to transfer</p>
+                    <input class="input is-large" type="amount" name="amount" placeholder="$0.00" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                  <p>Account where you want to transfer the money to</p>
+                    <input class="input is-large" type="account" name="account" placeholder="Account">
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Transfer</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

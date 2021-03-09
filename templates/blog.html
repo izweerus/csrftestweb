@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for post in posts %}
+
+<h3>Name:{{ post.name|safe }}</h3>
+<p>{{ post.text|safe }}</p>
+<hr>
+
+{% endfor %}
+
+<div class="box">
+    <form method="POST" action="/blog">
+        <div class="field">
+            <div class="control">
+              <p>Write a message yourself:</p>
+                <input class="input is-large" type="name" name="name" placeholder="name" autofocus="">
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+              <p>Text:</p>
+                <input class="input is-large" type="text" name="text" placeholder="Account">
+            </div>
+        </div>
+        <button class="button is-block is-info is-large is-fullwidth">Post</button>
+    </form>
+</div>
+
+{% endblock %}
